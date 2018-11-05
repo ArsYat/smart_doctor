@@ -1,7 +1,5 @@
 import pygame
 from tkinter import *
-from tkinter import messagebox
-import clicker
 
 pygame.init()
 size = [800, 600]
@@ -13,6 +11,15 @@ page2 = pygame.image.load('/home/ars/Документы/Венчурный Ак�
 
 def image1():
     screen.blit(page1, (0, 0))
+    write(name, 30, 25, 160, 255, 158, 0)
+    write(str(age), 30, 150, 160, 255, 158, 0)
+    write(str(time), 30, 275, 160, 255, 158, 0)
+    for i in pygame.event.get():
+        if i.type == pygame.MOUSEBUTTONDOWN and i.button == 1:
+            mouseX, mouseY = i.pos
+            if mouseX >= 692 and mouseX <= 791 and mouseY >= 490 and mouseY <= 591:
+                global number
+                number = 2
 
 def image2():
     screen.blit(page2, (0, 0))
@@ -64,11 +71,7 @@ running = True
 while running:
     if number == 1:
         image1()
-        screen.blit(page1, (0, 0))
-        write(name,30,25,160,255,158,0)
-        write(str(age),30,150,160,255,158,0)
-        write(str(time),30,275,160,255,158,0)
 
-    elif number == 2:
+    if number == 2:
         image2()
     pygame.display.flip()

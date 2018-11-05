@@ -4,8 +4,8 @@ import os                  # dealing with directories
 from random import shuffle # mixing up or currently ordered data that might lead our network astray in training.
 from tqdm import tqdm      # a nice pretty percentage bar for tasks. Thanks to viewer Daniel BA1/4hler for this suggestion
 
-TRAIN_DIR = '/home/ars/PyProjects/cv/data/trainBV'
-TEST_DIR = '/home/ars/PyProjects/cv/data/testBV'
+TRAIN_DIR = 'data/trainBV'
+TEST_DIR = 'data/testBV'
 IMG_SIZE = 200
 LR = 1e-3
 
@@ -27,7 +27,7 @@ def create_train_data():
         img = cv2.imread(path,cv2.IMREAD_GRAYSCALE)
         training_data.append([np.array(img),np.array(label)])
     shuffle(training_data)
-    np.save('train_data.npy', training_data)
+    np.save('data/train_data.npy', training_data)
     return training_data
 
 
@@ -40,9 +40,9 @@ def process_test_data():
         testing_data.append([np.array(img), img_num])
 
     shuffle(testing_data)
-    np.save('test_data.npy', testing_data)
+    np.save('data/test_data.npy', testing_data)
     return testing_data
 
 train_data  =  create_train_data ()
 # Если вы уже создали набор данных:
-# train_data = np.load ('train_data.npy')
+# train_data = np.load ('data/train_data.npy')

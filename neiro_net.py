@@ -36,7 +36,7 @@ model = tflearn.DNN(convnet, tensorboard_dir='log')
 
 
 
-if os.path.exists('/home/ars/PyProjects/cv/Models/{}.meta'.format(MODEL_NAME)):
+if os.path.exists(MODEL_NAME):
     model.load(MODEL_NAME)
     print('model loaded!')
 
