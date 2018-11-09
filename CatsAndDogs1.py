@@ -6,7 +6,7 @@ from tqdm import tqdm      # a nice pretty percentage bar for tasks. Thanks to v
 
 TRAIN_DIR = 'data/trainBV'
 TEST_DIR = 'data/testBV'
-IMG_SIZE = 100
+IMG_SIZE = 50
 LR = 1e-3
 
 MODEL_NAME = 'Models/virandbac-{}-{}.model'.format(LR, '2conv-basic') # just so we remember which saved model is which, sizes must match
