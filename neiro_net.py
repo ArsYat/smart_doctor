@@ -3,7 +3,7 @@ import tflearn
 from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.estimator import regression
-import numpy as np         # dealing with arrays
+import numpy as np
 import os
 
 from CatsAndDogs1 import IMG_SIZE, MODEL_NAME, train_data, LR

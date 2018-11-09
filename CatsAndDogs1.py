@@ -13,10 +13,8 @@ MODEL_NAME = 'Models/virandbac-{}-{}.model'.format(LR, '2conv-basic') # just so 
 
 def label_img(img):
     word_label = img[0:3]
-    # conversion to one-hot array [cat,dog]
-    #                            [much cat, no dog]
+    # conversion to one-hot array
     if word_label == 'Vir': return [1,0]
-    #                             [no cat, very doggo]
     elif word_label == 'Bac': return [0,1]
 
 def create_train_data():
