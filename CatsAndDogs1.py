@@ -6,7 +6,7 @@ from tqdm import tqdm      # a nice pretty percentage bar for tasks. Thanks to v
 
 TRAIN_DIR = 'data/trainBV'
 TEST_DIR = 'data/testBV'
-IMG_SIZE = 200
+IMG_SIZE = 100
 LR = 1e-3
 
 MODEL_NAME = 'Models/virandbac-{}-{}.model'.format(LR, '2conv-basic') # just so we remember which saved model is which, sizes must match
@@ -41,6 +41,6 @@ def process_test_data():
     np.save('data/test_data.npy', testing_data)
     return testing_data
 
-train_data  =  create_train_data ()
+train_data = create_train_data()
 # Если вы уже создали набор данных:
 # train_data = np.load ('data/train_data.npy')
