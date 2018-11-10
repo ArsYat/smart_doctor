@@ -34,8 +34,6 @@ convnet = regression(convnet, optimizer='adam', learning_rate=LR, loss='categori
 
 model = tflearn.DNN(convnet, tensorboard_dir='log')
 
-
-
 if os.path.exists(MODEL_NAME):
     model.load(MODEL_NAME)
     print('model loaded!')

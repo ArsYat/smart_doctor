@@ -23,6 +23,7 @@ def create_train_data():
         label = label_img(img)
         path = os.path.join(TRAIN_DIR,img)
         img = cv2.imread(path,cv2.IMREAD_GRAYSCALE)
+        img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
         training_data.append([np.array(img),np.array(label)])
     shuffle(training_data)
     np.save('data/train_data.npy', training_data)
@@ -35,6 +36,7 @@ def process_test_data():
         path = os.path.join(TEST_DIR, img)
         img_num = img.split('.')[0]
         img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+        img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
         testing_data.append([np.array(img), img_num])
 
     shuffle(testing_data)

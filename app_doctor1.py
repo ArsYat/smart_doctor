@@ -1,6 +1,6 @@
 import pygame
 from tkinter import *
-
+import cv2
 pygame.init()
 size = [800, 600]
 screen = pygame.display.set_mode(size)
@@ -21,8 +21,33 @@ def image1():
                 global number
                 number = 2
 
+needPhoto = True
+countPhoto = [0,0,0,0,0]
+howMany = 0
+howNeed = 5
+coeff = 1.4
+
 def image2():
     screen.blit(page2, (0, 0))
+    cap = cv2.VideoCapture(0)
+    global needPhoto, howMany, countPhoto, coeff
+    while cap.isOpened() and needPhoto == True:
+        _ , img = cap.read()
+        cv2.imshow('Your Photo', img)
+        if cv2.waitKey(1) == ord('w'):
+            needPhoto = False
+            countPhoto[howMany] = 1
+            xSize = round(640 / coeff)
+            ySize = round(480 / coeff)
+            img = cv2.resize(img, (xSize,ySize))  #427, 320 - необходимый сжатый размер изображения
+            cv2.imwrite("/home/ars/Документы/Венчурный Акселератор/Приложение/Снимок" + str(howMany)+ ".jpg",img)
+            howMany += 1
+            cv2.destroyAllWindows()
+    for i in range(0,howNeed):
+        if countPhoto[i] == 1:
+            image = pygame.image.load('/home/ars/Документы/Венчурный Акселератор/Приложение/Снимок'+ str(i) + '.jpg').convert_alpha()
+            screen.blit(image, (175,110))
+
 
 def click():
     def display_full_name():
