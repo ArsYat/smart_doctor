@@ -43,6 +43,6 @@ def process_test_data():
     np.save('data/test_data.npy', testing_data)
     return testing_data
 
-train_data = create_train_data()
+# train_data = create_train_data()
 # Если вы уже создали набор данных:
-# train_data = np.load ('data/train_data.npy')
+train_data = np.load ('data/train_data.npy')
