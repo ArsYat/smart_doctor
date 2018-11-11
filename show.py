@@ -7,8 +7,8 @@ labels = ['vir', 'bac', 'nor']
 
 model = load_model()
 
-test_data = create_train_data(TEST_DIR, TEST_FIL)
-# test_data = load_data(TEST_FIL)
+# test_data = create_train_data(TEST_DIR, TEST_FIL)
+test_data = load_data(TEST_FIL)
 
 fig = plt.figure()
 
@@ -18,8 +18,8 @@ for num, data in enumerate(test_data[100:112]):
 
     y = fig.add_subplot(3, 4, num + 1)
     orig = img_data
-    data = img_data.reshape(IMG_SIZE, IMG_SIZE, 1)
-    model_out = model.predict([data])[0]
+
+    model_out = model.predict([img_data.reshape(IMG_SIZE, IMG_SIZE, 1)])[0]
 
     pred = np.argmax(model_out)
     fact = np.argmax(data[1])
