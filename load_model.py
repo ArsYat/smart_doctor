@@ -5,7 +5,7 @@ from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.estimator import regression
 import os
 
-from load_data import IMG_SIZE, MODEL_NAME, LR
+from load_data import IMG_SIZE, MODEL_NAME, LR, OUTPUT_CLASSES
 
 
 def load_model():
@@ -30,7 +30,7 @@ def load_model():
     convnet = fully_connected(convnet, 1024, activation='relu')
     convnet = dropout(convnet, 0.8)
 
-    convnet = fully_connected(convnet, 2, activation='softmax')
+    convnet = fully_connected(convnet, OUTPUT_CLASSES, activation='softmax')
     convnet = regression(convnet, optimizer='adam', learning_rate=LR, loss='categorical_crossentropy', name='targets')
 
     model = tflearn.DNN(convnet, tensorboard_dir='log')
