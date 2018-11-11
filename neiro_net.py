@@ -1,12 +1,13 @@
 import numpy as np
 
-from load_data import IMG_SIZE, MODEL_NAME, load_data
+from load_data import IMG_SIZE, MODEL_NAME, load_data, create_train_data, TRAIN_DIR, TRAIN_FIL
 
 from load_model import load_model
 
 model = load_model()
 
-train_data = load_data('data/train_data.npy')
+train_data = create_train_data(TRAIN_DIR, TRAIN_FIL)
+# train_data = load_data(TRAIN_FIL)
 
 train = train_data[:-500]
 test = train_data[-500:]

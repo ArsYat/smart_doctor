@@ -1,12 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from load_data import IMG_SIZE, load_data
+from load_data import IMG_SIZE, create_train_data, load_data, TEST_DIR, TEST_FIL
 from load_model import load_model
 
 
 model = load_model()
 
-test_data = load_data('data/test_data.npy')
+test_data = create_train_data(TEST_DIR, TEST_FIL)
+# test_data = load_data(TEST_FIL)
+
 
 fig = plt.figure()
 

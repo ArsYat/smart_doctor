@@ -48,6 +48,7 @@ def mirror(img):
 
 number1 = 1
 number2 = 1
+name = "Nor"
 while number2 <= 10000:
     brightness_f = (random.random() * 0.6 + 0.7)
 
@@ -63,7 +64,7 @@ while number2 <= 10000:
     point7 = random.randint(200, 250)
     point8 = random.randint(200, 250)
 
-    img = Image.open('/home/ars/Документы/Венчурный Акселератор/Ангина/Normal Size B/' + str(number1) + '.jpg')
+    img = Image.open('/home/ars/Документы/Венчурный Акселератор/Ангина/Normal Size '+ name + "/" + str(number1) + '.jpg')
     # img = size(img)
 
     pix = img.load() #Выгружаем значения пикселей.
@@ -71,13 +72,13 @@ while number2 <= 10000:
     height = img.size[1] #Определяем высоту.
 
     img = brightness(img)
-    img.save("/home/ars/Документы/Венчурный Акселератор/Ангина/Бактериальная Train/Bac" + str(number2) + ".jpg", "JPEG")
+    img.save("/home/ars/PyProjects/cv/data/trainBV/" + name + str(number2) + ".jpg", "JPEG")
 
-    img = cv2.imread('/home/ars/Документы/Венчурный Акселератор/Ангина/Бактериальная Train/Bac' + str(number2) + '.jpg')
+    img = cv2.imread('/home/ars/PyProjects/cv/data/trainBV/' + name + str(number2) + '.jpg')
     number2 += 1
     img = perspective(img)
     img = mirror(img)
-    cv2.imwrite('/home/ars/Документы/Венчурный Акселератор/Ангина/Бактериальная Train/Bac' + str(number2) + '.jpg',img)
+    cv2.imwrite('/home/ars/PyProjects/cv/data/trainBV/' + name + str(number2) + '.jpg',img)
     number2 += 1
     number1 += 1
     if number1 == 16:

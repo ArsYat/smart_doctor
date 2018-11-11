@@ -1,9 +1,8 @@
 from PIL import Image
-import test2
 
-for i in range(16):
+for i in range(0,1):
     number = str(i + 1)
-    image = Image.open("/home/ars/Документы/Венчурный Акселератор/Ангина/Вирусная/" + number + ".jpg")
+    image = Image.open("/home/ars/Документы/Венчурный Акселератор/Ангина/Нормальная/" + number + ".jpg")
     def scale_image(original_image,
                     width=None,
                     height=None
@@ -34,6 +33,6 @@ for i in range(16):
     if __name__ == '__main__':
         scale_image(original_image = image,
                     width=None,
-                    height=250)
+                    height=500)
         cut(image)
-        image.save("/home/ars/Документы/Венчурный Акселератор/Ангина/Normal Size V/" + number + ".jpg")
+        image.save("/home/ars/Документы/Венчурный Акселератор/Ангина/Normal Size Nor/" + number + ".jpg")
