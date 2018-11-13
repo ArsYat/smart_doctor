@@ -4,7 +4,7 @@ import os                  # dealing with directories
 from random import shuffle # mixing up or currently ordered data that might lead our network astray in training.
 from tqdm import tqdm      # a nice pretty percentage bar for tasks. Thanks to viewer Daniel BA1/4hler for this suggestion
 
-IMG_SIZE = 50
+IMG_SIZE = 200
 OUTPUT_CLASSES = 3
 LR = 1e-3
 

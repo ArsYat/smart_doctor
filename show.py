@@ -24,7 +24,7 @@ for num, data in enumerate(test_data[100:112]):
     pred = np.argmax(model_out)
     fact = np.argmax(data[1])
 
-    y.imshow(orig)
+    y.imshow(orig, cmap='gray')
     plt.title('Pred:{} Fact:{}'.format(labels[pred], labels[fact]))
     y.axes.get_xaxis().set_visible(False)
     y.axes.get_yaxis().set_visible(False)
