@@ -7,8 +7,8 @@ labels = ['vir', 'bac', 'nor']
 
 model = load_model()
 
-# test_data = create_train_data(TEST_DIR, TEST_FIL)
-test_data = load_data(TEST_FIL)
+test_data = create_train_data(TEST_DIR, TEST_FIL)
+# test_data = load_data(TEST_FIL)
 
 fig = plt.figure()
 

@@ -25,6 +25,9 @@ def label_img(img):
 
 
 def create_train_data(train_dir, save_file):
+    if os.path.exists(save_file):
+        return load_data(save_file)
+
     train_data = []
     for img in tqdm(os.listdir(train_dir)):
         label = label_img(img)

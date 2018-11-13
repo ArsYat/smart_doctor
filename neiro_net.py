@@ -6,8 +6,8 @@ from load_model import load_model
 
 model = load_model()
 
-# train_data = create_train_data(TRAIN_DIR, TRAIN_FIL)
-train_data = load_data(TRAIN_FIL)
+train_data = create_train_data(TRAIN_DIR, TRAIN_FIL)
+# train_data = load_data(TRAIN_FIL)
 
 train = train_data[:-500]
 test = train_data[-500:]
