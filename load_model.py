@@ -35,5 +35,7 @@ def load_model():
     if os.path.exists(MODEL_NAME):
         model.load(MODEL_NAME)
         print('model loaded!')
+    else:
+        print('MODEL NOT FOUND')
 
     return model
