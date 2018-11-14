@@ -32,7 +32,7 @@ def load_model():
 
     model = tflearn.DNN(convnet, tensorboard_dir='log')
 
-    if os.path.exists(MODEL_NAME):
+    if os.path.exists('{}.meta'.format(MODEL_NAME)):
         model.load(MODEL_NAME)
         print('model loaded!')
     else:
