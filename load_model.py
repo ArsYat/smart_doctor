@@ -18,15 +18,6 @@ def load_model():
     convnet = conv_2d(convnet, 64, 5, activation='relu')
     convnet = max_pool_2d(convnet, 5)
 
-    convnet = conv_2d(convnet, 128, 5, activation='relu')
-    convnet = max_pool_2d(convnet, 5)
-
-    convnet = conv_2d(convnet, 256, 5, activation='relu')
-    convnet = max_pool_2d(convnet, 5)
-
-    convnet = conv_2d(convnet, 128, 5, activation='relu')
-    convnet = max_pool_2d(convnet, 5)
-
     convnet = conv_2d(convnet, 64, 5, activation='relu')
     convnet = max_pool_2d(convnet, 5)
 
