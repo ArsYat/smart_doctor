@@ -15,7 +15,8 @@ test_data = create_train_data(TEST_DIR, TEST_FIL)
 
 fig = plt.figure()
 
-pos = int(random.random()*(3000-12))
+pos = 345 # vir / bac
+# int(random.random()*(3000-12))
 
 for num, data in enumerate(test_data[pos:pos+12]):
 
