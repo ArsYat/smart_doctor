@@ -13,7 +13,7 @@ TRAIN_FIL = 'data/train_data_{}_{}.npy'.format(IMG_SIZE, OUTPUT_CLASSES)
 TEST_DIR = 'data/testBV'
 TEST_FIL = 'data/test_data_{}_{}.npy'.format(IMG_SIZE, OUTPUT_CLASSES)
 
-MODEL_NAME = 'Models/virandbac-{}-{}-{}-{}.model'.format(IMG_SIZE, OUTPUT_CLASSES, LR, '2conv-basic')
+MODEL_NAME = 'Models/virandbac-{}-{}-{}-{}.model'.format(IMG_SIZE, OUTPUT_CLASSES, LR, 'exp_p256_p128')
 
 
 def label_img(img):
