@@ -1,4 +1,6 @@
 import pygame
+# from show import ___ ; ___() - вызов
+
 from tkinter import *
 import cv2
 pygame.init()
@@ -21,21 +23,21 @@ def image1():
                 global number
                 number = 2
 
-needPhoto = True
+needPhoto = 0
 countPhoto = [0,0,0,0,0]
 howMany = 0
-howNeed = 5
+howNeed = 1
 coeff = 1.4
 
 def image2():
     screen.blit(page2, (0, 0))
     cap = cv2.VideoCapture(0)
     global needPhoto, howMany, countPhoto, coeff
-    while cap.isOpened() and needPhoto == True:
+    while cap.isOpened() and needPhoto < howNeed:
         _ , img = cap.read()
         cv2.imshow('Your Photo', img)
         if cv2.waitKey(1) == ord('w'):
-            needPhoto = False
+            needPhoto += 1
             countPhoto[howMany] = 1
             xSize = round(640 / coeff)
             ySize = round(480 / coeff)
@@ -47,6 +49,7 @@ def image2():
         if countPhoto[i] == 1:
             image = pygame.image.load('/home/ars/Документы/Венчурный Акселератор/Приложение/Снимок'+ str(i) + '.jpg').convert_alpha()
             screen.blit(image, (175,110))
+    return image
 
 
 def click():
@@ -82,6 +85,9 @@ def click():
     root.mainloop()
     return name.get(), age.get(), time.get()
 
+def neiro_go(image):
+    return
+
 def write(word,font_c,xText,yText,r,g,b):
     font = pygame.font.Font(None,font_c)
     text = font.render(word, True,[r,g,b])
@@ -98,5 +104,6 @@ while running:
         image1()
 
     if number == 2:
-        image2()
+        image = image2()
+        neiro_go(image)
     pygame.display.flip()
