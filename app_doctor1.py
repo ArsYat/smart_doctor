@@ -1,8 +1,12 @@
 import pygame
 # from show import ___ ; ___() - вызов
+from anwser_data import answer
 
 from tkinter import *
 import cv2
+
+from load_data import IMG_SIZE
+
 pygame.init()
 size = [800, 600]
 screen = pygame.display.set_mode(size)
@@ -31,7 +35,7 @@ coeff = 1.4
 
 def image2():
     screen.blit(page2, (0, 0))
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
     global needPhoto, howMany, countPhoto, coeff
     while cap.isOpened() and needPhoto < howNeed:
         _ , img = cap.read()
@@ -47,9 +51,16 @@ def image2():
             cv2.destroyAllWindows()
     for i in range(0,howNeed):
         if countPhoto[i] == 1:
-            image = pygame.image.load('/home/ars/Документы/Венчурный Акселератор/Приложение/Снимок'+ str(i) + '.jpg').convert_alpha()
+            path = '/home/ars/Документы/Венчурный Акселератор/Приложение/Снимок'+ str(i) + '.jpg'
+            image = pygame.image.load(path).convert_alpha()
             screen.blit(image, (175,110))
-    return image
+
+    img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    img = cv2.resize(img, (IMG_SIZE, IMG_SIZE))
+    pygame.display.flip()
+
+    answer(img)
+    return img
 
 
 def click():
@@ -85,9 +96,6 @@ def click():
     root.mainloop()
     return name.get(), age.get(), time.get()
 
-def neiro_go(image):
-    return
-
 def write(word,font_c,xText,yText,r,g,b):
     font = pygame.font.Font(None,font_c)
     text = font.render(word, True,[r,g,b])
@@ -105,5 +113,4 @@ while running:
 
     if number == 2:
         image = image2()
-        neiro_go(image)
     pygame.display.flip()

@@ -1,12 +1,12 @@
 import cv2
 from PIL import Image, ImageDraw
 
-IMG_SIZE = 200
+IMG_SIZE2 = 200
 
 
 def newsize(img):
     h, w, _ = img.shape
-    scale = 200 / max(h, w)
+    scale = IMG_SIZE2 / max(h, w)
     img.resize((int(h * scale), int(w * scale)), Image.ANTIALIAS)
 
 for i in range(16):

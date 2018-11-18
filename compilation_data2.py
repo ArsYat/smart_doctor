@@ -3,8 +3,7 @@ import random
 import cv2
 import numpy as np
 
-IMG_SIZE = 200
-
+from load_data import IMG_SIZE
 # def size(img_need):
    # img_need = img_need.resize((IMG_SIZE, IMG_SIZE), Image.ANTIALIAS)
    # return img_need
