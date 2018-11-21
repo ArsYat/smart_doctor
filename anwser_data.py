@@ -14,8 +14,11 @@ def answer(img):
     model_out = model.predict([reshaped_data])[0] # ответ нейронной сети
 
     pred = np.argmax(model_out)
-
+    if model_out[pred] < 0.7:
+        neiro_ans = "No"
+    else:
+        neiro_ans = labels[pred]
     print(labels[pred], model_out[pred])
-
+    return(neiro_ans)
 
 
